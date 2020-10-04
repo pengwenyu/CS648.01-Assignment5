@@ -1,0 +1,33 @@
+@mixin backimage($image,$repeat:no-repeat){
+    background-image: url($image);
+    background-repeat: $repeat;
+}
+
+
+@mixin heightandwidth($height:100px,$width:100px){
+    height: $height;
+    width: $width;
+}
+
+@mixin setfont ($color:#FFFFFF,$weight:100,$size:4em,$height:0){
+    color: $color;
+    font-weight: $weight;
+    font-size:$size;
+    height: $height;
+}
+@mixin bgposition($i){
+    background-position: $i * -38px 0;
+}
+
+@mixin break($args...) {
+    @if length($args) == 1 {
+      @media screen and (max-width: nth($args, 1)) {
+        @content;
+      }
+    } @else {
+      @media (min-width: nth($args, 1)) and (max-width: nth($args, 2)) {
+        @content;
+      }
+    }
+  }
+
